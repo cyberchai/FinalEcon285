@@ -1,0 +1,159 @@
+---
+  title: |
+  | ECO285 Case 7: 
+  | Research Affiliates and Dynamic Multifactor Strategies
+author:
+- "Group C: Chaira, Simi, Melanie, Ellie"
+format:
+  html: 
+  standalone: true
+title-block-banner: true
+theme: simplex
+fontsize: 1.0em
+number-sections: true
+number-depth: 3
+toc: false
+pdf:
+  number-sections: true
+number-depth: 3
+toc: false
+---
+
+Loading packages and setting up environment
+
+```{r}
+#| label: setup
+#| output: false
+
+
+# here::i_am("analysis/regression.qmd")
+# library(here)
+
+library(frenchdata)
+
+library(tidyverse)
+library(tidyquant)
+library(lubridate)
+library(knitr)
+library(dplyr)
+library(tsibble)
+
+library(PortfolioAnalytics)
+library(DEoptim)
+library(ROI)
+require(ROI.plugin.glpk)
+require(ROI.plugin.quadprog)
+
+library(readxl)
+
+# Set global options (for all chunks, unless otherwise specified)
+knitr::opts_chunk$set(echo = TRUE, cache=TRUE)
+
+options(scipen = 999) # to avoid displaying numbers in scientific notation
+```
+
+
+Loading data
+
+```{r}
+# The four ETFs we want to analyze
+etfs <- c("MFUS", "OMFL", "LRGF", "IWB")
+
+# Load data from Yahoo Finance
+etf_prices <- tq_get(etfs, 
+                     from = "2017-12-01", 
+                     to = "2021-02-28", 
+                     get = "stock.prices")
+
+# Load the 7-factor data
+etf_monthly_returns <- etf_prices |>
+  group_by(symbol) |>
+  tq_transmute(select = adjusted,
+               mutate_fun = periodReturn,
+               period = "monthly",
+               type = "log")
+```
+
+```{r}
+french_data_sets <- get_french_data_list()
+french_data_sets
+```
+
+
+```{r}
+ff_5factors <- download_french_data("Fama/French 5 Factors (2x3)") 
+momentum <- download_french_data("Momentum Factor (Mom)")
+
+factors <- ff_5factors$subsets$data[[1]] |>
+  left_join(momentum$subsets$data[[1]], by = "date") |>
+  mutate(across(-date, \(x) x / 100)) |>  # scale to decimals
+  rename(
+    MOM = Mom,       
+    MKT = `Mkt-RF`
+  )
+
+# Now separately:
+factors <- factors |>
+  mutate(
+    yearmon = yearmonth(ym(date)),
+    date = ymd("1963-07-31") %m+% months(0:(nrow(factors) - 1))
+  ) |>
+  select(date, yearmon, MKT, SMB, HML, RMW, CMA, MOM, RF)
+
+head(factors)       
+```
+
+```{r}
+# VOL low volatility factor from downloaded excel file
+volatility_factor <- read_excel("analysis/volatilityfactor.xlsx", sheet = 1)
+
+volatility_factor <- volatility_factor %>%
+  mutate(date = as.Date(as.yearmon(date, format = "%Y%m")))
+
+# merge
+factors <- factors %>%
+  left_join(volatility_factor, by = "date")
+
+```
+
+
+
+  
+5. Compute the average returns and CAPM alphas for each of the seven factors factors over the period from December 2017 until February 2021 (case sample). Repeat these calculations over a longer 30-year sample, from 1994 until 2024. You may also plot the returns to these factors over a longer period.
+
+
+```{r}
+# avg returns
+full_data %>%
+  summarise(across(c(MKT_RF, SMB, HML, RMW, CMA, MOM, VOL), ~mean(.x, na.rm = TRUE)))
+
+# CAPM regression (for each factor separately)
+lm_HML <- lm(HML ~ MKT_RF, data = full_data)
+summary(lm_HML)  # Alpha is the intercept
+
+```
+
+
+6. Estimate CAPM and 7-factor regressions for the four ETFs across the shorter (2017-2021) case sample and also the longest available sample for each ETF. Report the alpha and beta estimates, together with Newey-West standard errors, in a regression table using model_summary(). Annualize the alphas by multiplying by 12.
+
+```{r}
+library(modelsummary)
+library(lmtest)
+library(sandwich)
+
+# Example for MFUS
+model_capm <- lm(MFUS ~ MKT_RF, data = full_data)
+model_7factor <- lm(MFUS ~ MKT_RF + SMB + HML + RMW + CMA + MOM + VOL, data = full_data)
+
+# Newey-West standard errors
+se_capm <- coeftest(model_capm, vcov = NeweyWest(model_capm))
+se_7factor <- coeftest(model_7factor, vcov = NeweyWest(model_7factor))
+
+# Summarize
+modelsummary(list("CAPM" = model_capm, "7-Factor" = model_7factor),
+             statistic_override = list(se_capm[,2], se_7factor[,2]),
+             stars = TRUE)
+
+```
+
+
