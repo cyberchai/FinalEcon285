@@ -44,7 +44,13 @@ library(ROI)
 require(ROI.plugin.glpk)
 require(ROI.plugin.quadprog)
 
-library(readxl)
+# library(readxl)
+library(readr)
+library(zoo)
+library(modelsummary)
+library(lmtest)
+library(sandwich)
+
 
 # Set global options (for all chunks, unless otherwise specified)
 knitr::opts_chunk$set(echo = TRUE, cache=TRUE)
@@ -100,36 +106,39 @@ factors <- factors |>
   ) |>
   select(date, yearmon, MKT, SMB, HML, RMW, CMA, MOM, RF)
 
-head(factors)       
+head(factors)
 ```
+
+
 
 ```{r}
-# VOL low volatility factor from downloaded excel file
-volatility_factor <- read_excel("analysis/volatilityfactor.xlsx", sheet = 1)
+# First, clean lowvol (you already did this perfectly!)
+lowvol <- read_csv("lowvol.csv")
+colnames(lowvol)[1] <- "date"
 
-volatility_factor <- volatility_factor %>%
-  mutate(date = as.Date(as.yearmon(date, format = "%Y%m")))
+lowvol <- lowvol |>
+  mutate(
+    month_part = substr(date, 1, 3),
+    year_part = substr(date, 5, 6),
+    year_numeric = as.numeric(year_part),
+    full_year = ifelse(year_numeric < 25, paste0("20", year_part), paste0("19", year_part)),
+    full_date = paste0("01-", month_part, "-", full_year),
+    date = as.Date(full_date, format = "%d-%b-%Y"),
+    yearmon = as.yearmon(date)    # <--- ADD THIS LINE!
+  )
 
-# merge
+# Then merge
 factors <- factors %>%
-  left_join(volatility_factor, by = "date")
+  mutate(yearmon = as.yearmon(date)) %>%
+  left_join(lowvol, by = "yearmon")
 
+#ChatGPT helped add title to date column and convert character to date
 ```
 
-
-
-  
 5. Compute the average returns and CAPM alphas for each of the seven factors factors over the period from December 2017 until February 2021 (case sample). Repeat these calculations over a longer 30-year sample, from 1994 until 2024. You may also plot the returns to these factors over a longer period.
 
 
 ```{r}
-# avg returns
-full_data %>%
-  summarise(across(c(MKT_RF, SMB, HML, RMW, CMA, MOM, VOL), ~mean(.x, na.rm = TRUE)))
-
-# CAPM regression (for each factor separately)
-lm_HML <- lm(HML ~ MKT_RF, data = full_data)
-summary(lm_HML)  # Alpha is the intercept
 
 ```
 
@@ -137,22 +146,6 @@ summary(lm_HML)  # Alpha is the intercept
 6. Estimate CAPM and 7-factor regressions for the four ETFs across the shorter (2017-2021) case sample and also the longest available sample for each ETF. Report the alpha and beta estimates, together with Newey-West standard errors, in a regression table using model_summary(). Annualize the alphas by multiplying by 12.
 
 ```{r}
-library(modelsummary)
-library(lmtest)
-library(sandwich)
-
-# Example for MFUS
-model_capm <- lm(MFUS ~ MKT_RF, data = full_data)
-model_7factor <- lm(MFUS ~ MKT_RF + SMB + HML + RMW + CMA + MOM + VOL, data = full_data)
-
-# Newey-West standard errors
-se_capm <- coeftest(model_capm, vcov = NeweyWest(model_capm))
-se_7factor <- coeftest(model_7factor, vcov = NeweyWest(model_7factor))
-
-# Summarize
-modelsummary(list("CAPM" = model_capm, "7-Factor" = model_7factor),
-             statistic_override = list(se_capm[,2], se_7factor[,2]),
-             stars = TRUE)
 
 ```
 
