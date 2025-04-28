@@ -51,6 +51,8 @@ library(modelsummary)
 library(lmtest)
 library(sandwich)
 
+library(modelsummary)
+
 
 # Set global options (for all chunks, unless otherwise specified)
 knitr::opts_chunk$set(echo = TRUE, cache=TRUE)
@@ -137,15 +139,68 @@ factors <- factors %>%
 
 5. Compute the average returns and CAPM alphas for each of the seven factors factors over the period from December 2017 until February 2021 (case sample). Repeat these calculations over a longer 30-year sample, from 1994 until 2024. You may also plot the returns to these factors over a longer period.
 
+```{r}
+# colnames(case_sample)
+```
+
 
 ```{r}
+# Filter 2017-2021 case sample
+case_sample <- factors %>%
+  filter(yearmon >= as.yearmon("2017-12") & yearmon <= as.yearmon("2021-02"))
 
+case_sample %>%
+  summarise(across(c(MKT, SMB, HML, RMW, CMA, MOM, `Small LowVol`), mean, na.rm = TRUE))
+
+model_HML <- lm(HML ~ MKT, data = case_sample)
+summary(model_HML)  # alpha = intercept
+
+long_sample <- factors %>%
+  filter(yearmon >= as.yearmon("1994-01"))
+
+# avg returns
+long_sample %>%
+  summarise(across(c(MKT, SMB, HML, RMW, CMA, MOM, `Small LowVol`), mean, na.rm = TRUE))
+
+```
+```{r}
+# lm_HML <- lm(HML ~ MKT, data = case_sample)
+# summary(lm_HML)   # intercept = alpha for HML
+# 
+# lm_SMB <- lm(SMB ~ MKT, data = case_sample)
+# summary(lm_SMB)
+# 
+# lm_RMW <- lm(RMW ~ MKT, data = case_sample)
+# summary(lm_RMW)
+# 
+# lm_CMA <- lm(CMA ~ MKT, data = case_sample)
+# summary(lm_CMA)
+# 
+# lm_MOM <- lm(MOM ~ MKT, data = case_sample)
+# summary(lm_MOM)
+# 
+# lm_VOL <- lm(VOL ~ MKT, data = case_sample)
+# summary(lm_VOL)
 ```
 
 
 6. Estimate CAPM and 7-factor regressions for the four ETFs across the shorter (2017-2021) case sample and also the longest available sample for each ETF. Report the alpha and beta estimates, together with Newey-West standard errors, in a regression table using model_summary(). Annualize the alphas by multiplying by 12.
 
 ```{r}
+# CAPM model for MFUS
+model_mfus_capm <- lm(MFUS ~ MKT_RF, data = case_sample)
+
+# 7-factor model for MFUS
+model_mfus_7f <- lm(MFUS ~ MKT_RF + SMB + HML + RMW + CMA + MOM + `Small LowVol`, data = case_sample)
+
+modelsummary(
+  list("MFUS CAPM" = model_mfus_capm, "MFUS 7-Factor" = model_mfus_7f),
+  statistic_override = list(
+    coeftest(model_mfus_capm, vcov = NeweyWest(model_mfus_capm))[, 2],
+    coeftest(model_mfus_7f, vcov = NeweyWest(model_mfus_7f))[, 2]
+  ),
+  stars = TRUE
+)
 
 ```
 
