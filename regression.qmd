@@ -205,4 +205,26 @@ modelsummary(
 
 ```
 
+7. If factor betas for a strategy are time-invariant (e.g. static multifactor ETF), what is the predicted 7-factor alpha? If factor betas for a strategy are time-varying so as to time the factors, what is the predicted 7-factor alpha? Based on these predictions and your regression results, which dynamic multifactor ETF (MFUS or OMFL) appears to time the factors better?
+
+If factor betas for a strategy are time-invariant, then the predicted 7-factor alpha is 0. This is because when the factor betas are time invariant, then $R_i=\beta_{im}R_{im}$. If factor betas for a strategy are time-varying, then the predicted 7-factor alpha is positive, assuming that factor betas are well-timed. 
+
+Since OMFL has a positive alpha with a Newey-West standard error of 0.47% and MFUS has a negative alpha with a Newey-West standard error of 0.1%, OMFL appears to time the factors better than MFUS.
+```{r}
+#alphas
+alpha_mfus <- 12 * coef(model_mfus_7f)[1]
+alpha_omfl <- 12 * coef(model_omfl_7f)[1]
+
+#Newey-West standard errors as percents
+se_mfus <- 100*coeftest(model_mfus_7f, vcov = NeweyWest(model_mfus_7f))[1,2]
+se_omfl <- 100*coeftest(model_omfl_7f, vcov = NeweyWest(model_omfl_7f))[1,2]
+
+alpha_mfus
+alpha_omfl
+
+se_mfus
+se_omfl
+
+```
+
 
