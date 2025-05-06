@@ -225,6 +225,11 @@ alpha_omfl
 se_mfus
 se_omfl
 
+results <- data.frame(Fund = c("MFUS", "OMFL"), 
+                      Alpha = c(round(alpha_mfus, 2), round(alpha_omfl, 2)),
+                      `Newey-West SE (%)` = c(round(se_mfus, 2), round(se_omfl, 2)))
+kable(results)
+
 ```
 
 
