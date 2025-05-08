@@ -73,8 +73,6 @@ Our analysis of the performance of another dynamic multifactor ETF and a static 
 
 ## Set Up and Data
 
-Loading packages and setting up environment
-
 ```{r}
 #| label: setup
 #| output: false
@@ -114,9 +112,9 @@ options(scipen = 999) # to avoid displaying numbers in scientific notation
 ```
 
 
-Loading data
-
 ```{r}
+#| echo: false
+
 # The four ETFs we want to analyze
 etfs <- c("MFUS", "OMFL", "LRGF", "IWB")
 
@@ -138,6 +136,8 @@ etf_monthly_returns <- etf_prices |>
 
 
 ```{r}
+#| echo: false
+
 ff_5factors <- download_french_data("Fama/French 5 Factors (2x3)")
 momentum <- download_french_data("Momentum Factor (Mom)")
 
@@ -163,6 +163,8 @@ head(factors)
 
 
 ```{r}
+#| echo: false
+
 # First, clean lowvol -- we actually want to use the VOL column
 lowvol <- read_csv("lowvol.csv")
 colnames(lowvol)[1] <- "date"
@@ -187,17 +189,20 @@ factors <- factors %>%
 ```
 
 ```{r}
+#| echo: false
+
 head(factors)
 ```
 
 
 ## Quantitative Analysis Section
 
-
-5. Compute the average returns and CAPM alphas for each of the seven factors factors over the period from December 2017 until February 2021 (case sample). Repeat these calculations over a longer 30-year sample, from 1994 until 2024. You may also plot the returns to these factors over a longer period.
-
 ### AVERAGE RETURNS 2017 - 2021
 ```{r}
+#| echo: false
+
+#Question 5
+
 # AVERAGE RETURNS 2017 - 2021
 
 # edit: need to change data for Small LowVOL -- DONE
@@ -217,6 +222,8 @@ case_sample %>%
 ### AVERAGE RETURNS FULL TIME
 
 ```{r}
+#| echo: false
+
 long_sample <- factors %>%
   filter(yearmon >= as.yearmon("1994-01")) %>%
   mutate(`VOL` = as.numeric(gsub("%", "",`VOL`)))
@@ -232,10 +239,13 @@ big_sample <- case_sample %>%
   inner_join(etf_monthly_returns, by = "date")
 
 ```
-So now that we have the average returns, we can calculate the CAPM alphas for each of the 7 factors, for both time periods.
+
 
 
 ```{r}
+#| echo: false
+
+
 # CAPM alphas
 
 # func to calculate CAPM alpha for a list of factors
@@ -260,6 +270,8 @@ get_capm_alphas <- function(data, rf_col = "RF", mkt_col = "MKT", factor_names) 
 
 
 ```{r}
+#| echo: false
+
 # capm 2017 - 21
 
 # note MKT is the market factor and should not be regressed on itself
@@ -280,6 +292,8 @@ capm_alphas_short
 
 
 ```{r}
+#| echo: false
+
 # Subset long sample
 capm_long_sample <- long_sample %>%
   select(date.x, MKT, RF, all_of(factor_list)) %>%
@@ -291,10 +305,12 @@ capm_alphas_long$Alpha_Annualized <- capm_alphas_long$Alpha * 12
 capm_alphas_long
 ```
 
-6. Estimate CAPM and 7-factor regressions for the four ETFs across the shorter (2017-2021) case sample and also the longest available sample for each ETF. Report the alpha and beta estimates, together with Newey-West standard errors, in a regression table using model_summary(). Annualize the alphas by multiplying by 12.
 
-Function to run CAPM ests and 7 factor regr. w Newey West SEs
 ```{r}
+#| echo: false
+
+
+#Question 6
 run_regressions <- function(data, etf_names, factor_names, lag = 3) {
   models <- list()
 
@@ -319,6 +335,8 @@ run_regressions <- function(data, etf_names, factor_names, lag = 3) {
 
 
 ```{r}
+#| echo: false
+
 factors <- factors |>
   rename(date = date.x)
 
@@ -329,6 +347,8 @@ full_data <- factors %>%
 
 
 ```{r}
+#| echo: false
+
 factors_all <- c("MKT", "SMB", "HML", "RMW", "CMA", "MOM", "VOL")
 # this is not my finest most concise code
 
@@ -352,6 +372,9 @@ models_short <- run_regressions(short_data, etfs, factors_all)
 ```
 
 ```{r}
+#| echo: false
+
+
 adjust_annual_alpha <- function(model_list) {
   # Extract and annualize alpha
   alpha_annualizer <- function(x) {
@@ -371,6 +394,8 @@ adjust_annual_alpha <- function(model_list) {
 
 
 ```{r}
+#| echo: false
+
 models_short_adj <- adjust_annual_alpha(models_short)
 # models_long_adj  <- adjust_annual_alpha(models_long)
 

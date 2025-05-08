@@ -8,7 +8,7 @@
 
 <meta name="author" content="Group C: Chaira, Simi, Melanie, Ellie">
 
-<title>quarto-inputf08bd728</title>
+<title>quarto-input6e1e25f9</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -72,9 +106,307 @@ Research Affiliates and Dynamic Multifactor Strategies</div></h1>
 
 
 
-<p>Several pivotal decisions face the Research Affiliates team regarding the future of the strategy underlying the PIMCO RAFI Multifactor ETF (MFUS). MFUS delivered an aggregate return of 10.02% from December 2017 to February 2021, underperforming the broader market’s return of 14.56% by 4.54%, as indexed by the Russell 1000. MFUS also trailed competing ETFs that employed the same dynamic, multifactor strategy, such as the Invesco Russell 1000 Dynamic Multifactor ETF (OMFL), which returned 18.4% in the same period. This underperformance to both the benchmark and competitors prompted a review of three key elements of Research Affiliates’ strategy: factor selection, the dynamic allocation methodology, and the use of fundamental weighting. Research Affiliates selected five smart-beta strategies with low and negative correlations for MFUS: value, low volatility, quality, momentum, and size. From 1968 to 2016, these factors averaged an annual return of 13.14% (Exhibit 13). Beyond historical performance, valuation-based predictability supported their inclusion. For example, the RAFI Fundamental Index, which weights companies using four fundamental value measures, shows a negative relationship between price-to-book (P/B) ratio and future five-year returns, suggesting that cheaper strategies tend to produce higher future returns (Exhibit 1). The Low Volatility Index similarly demonstrates a decline in returns as the P/B ratio increases, with expected 5-year returns falling from around 18% to -13% as the P/B ratio increases from around 0.3 to 0.8, suggesting that the strategy is sensitive to relative valuation, making it better suited for timing in the dynamic strategy (Exhibit 1). In contrast, the Momentum factor demonstrates a weaker, more dispersed relationship. Returns are clustered in the 0-10% range across a broader range of P/B ratios (1-5) relative to Volatility, which suggests that timing offers limited predictability for this factor, based on valuation. Despite this, momentum received high allocations in practice, ranging from 18% to 35%, the upper limit, which suggests its z-score was driven more by recent outperformance than by valuation reversion. The divergence in responsiveness of different factors to valuation-based timing is a key limitation in Research Affiliates’ strategy. While the low-volatility factor responds well to valuation-based timing, other factors, such as momentum, are better captured through other measures that are not accounted for in the allocation strategy. MFUS’s dynamic allocation methodology adjusts weights based on two timing signals: factor reversal (performance over the last 5 years) and factor momentum (return over the previous year). These signals are standardized into z-scores, which then determine shifts in the dynamic allocation. From 2016 to 2020, the Low Volatility factor saw the widest allocation range of the five factors, ranging from around 8% to 30%. This wide range reflects the sensitivity of the volatility factor to valuation, where returns sharply decline as P/B ratios increase, supporting significant allocation shifts as valuations rise. The Momentum allocation shows a narrower allocation range from around 18% to 35%, the upper limit. Momentum’s high, relatively stable allocation is driven more by strong recent performance than valuation reversals, as Exhibit 1 shows the Momentum factor displays a weak, more dispersed relationship between the P/B ratio and future returns, which shows clustering around the 10% return ratio regardless of valuation.</p>
-<p>This relationship suggests that valuation-based timing is less effective for the Momentum factor relative to factors with a stronger valuation/return relationship, suggesting its allocation shifts were more likely to be driven by positive-momentum z-scores. This uneven responsiveness across valuation-sensitive factors is a key limitation of the dynamic allocation strategy, where it performs better for valuation-sensitive factors but is less effective for trend-based factors like momentum, which persist despite appearing to be more expensive. MFUS utilizes a fundamental weighting strategy rather than the more commonly used market capitalization approach, aiming to anchor portfolio weights in long-term business fundamentals, rather than market sentiment. The strategy determined company weights by averaging four accounting-based measures: de-levered sales, operating cash flow, average dividends paid and share buybacks, and most recent book value. These variables favor companies with strong and consistent fundamentals historically associated with future returns, which is necessary in the strategy that aims to use value-tilted factors to reduce exposure to overvalued stocks. This valuation strategy seeks to offer protection during speculative periods, such as the late 1990s tech bubble, which saw overpriced growth stocks put a drag on returns. However, the value-tilted design created a value bias that limited MFUS’s exposure to growth-driven companies. MFUS allocated 61% to large-cap stocks and just 10% to small-caps, while competing ETF OMFL allocated 61% of its portfolio to mid-cap stocks. Sector composition within MFUS skewed towards sensitive sectors (40.72% of allocation), namely technology (18.09%) and industrials (11.4%), while OMFL weighed heavily in cyclical sectors (53.46%), specifically financials (24.14%) and consumer cyclical companies (19.46%). These sector tilts allowed OMFL to reap more rewards from the economic expansion that defined much of the period from 2017 to early 2020, while MFUS’s value tilt lagged. Exhibit 12 shows that MFUS had top portfolio weightings in large, stable companies, averaging P/B ratios of $3.34, such as Apple (2.62%), Walmart (1.72%), and Hom e Depot (1.38%), consistent with the fundamental weighting strategy. OMFL held higher weights in mid-cap, more economically-sensitive firms that averaged P/B ratios of $3.05, such as ViacomCBS (1.06%) and United Rentals (0.92%) that benefited from cyclical growth. The divergence in portfolio design is seen in portfolio turnover, where OMFL’s turnover ratio of 321% indicates high-frequency rebalancing, while MFUS’s 36% turnover ratio is more consistent with its long-term, valuation focus and reliance on more slowly evolving fundamental metrics.</p>
-<p>The PIMCO RAFI Dynamic Multifactor ETF (MFUS) implements a dynamic weighting strategy designed by Research Affiliates, aiming to outperform static multifactor models by tactically allocating more capital to factors that appear cheap or have performed well recently. This contrasts with ETFs like Invesco’s OMFL, which also uses a multifactor framework but relies more heavily on macroeconomic regime-based factor tilts. The dynamic approach used in MFUS is distinctive in that it systematically tilts portfolio weights toward “undervalued” factors using a combination of valuation metrics such as factor reversal and recent performance like factor momentum. The primary strength of dynamic weighting is its theoretical ability to improve returns by adapting factor exposures based on changing market conditions. This approach recognizes that factors are cyclical. Value and Size, for instance, may underperform for several years before experiencing rebounds. By overweighting factors that have underperformed over a 4-year horizon but shown recent 12-month strength, MFUS seeks to enter those rebounds early. This approach also addresses a common critique of static models which is that they may remain overexposed to expensive or overcrowded factors. Another benefit is flexibility. A dynamic model can reduce exposure to factors that are expensive or exhibiting negative momentum, potentially avoiding extended periods of underperformance. This ability to tilt away from crowded trades or overvalued factors could help improve risk-adjusted returns compared to static equal-weighted approaches. Despite its appeal, dynamic weighting is not without risks. It depends heavily on the reliability of the timing signals used. These signals can fail, especially during economic shifts. From 2017 to 2021, MFUS significantly underperformed both the Russell 1000 and competitor multifactor ETFs like OMFL, calling into question the effectiveness of its timing approach. This underperformance suggests that even well-designed dynamic models may be prone to mis-timing or may overweight structurally underperforming factors like Value, especially when traditional valuation metrics do not capture intangible value well.</p>
+<p>Research Affiliates was a leading firm in using fundamental weighting as a portfolio indexing strategy. Fundamental weighting is a value-based weighting strategy, and prior to their PIMCO RAFI dynamic multifactor ETF, Research Affiliates had only focused on these fundamentally weighted products. Our analysis focuses on the PIMCO RAFI dynamic multifactor ETF and how it should be adjusted after its first four years on the market.</p>
+<p>Several pivotal decisions face the Research Affiliates team regarding the future of the strategy underlying the PIMCO RAFI Multifactor ETF (MFUS). MFUS delivered an aggregate return of 10.02% from December 2017 to February 2021, underperforming the broader market’s return of 14.56% by 4.54%, as indexed by the Russell 1000. MFUS also trailed competing ETFs that employed the same dynamic, multifactor strategy, such as the Invesco Russell 1000 Dynamic Multifactor ETF (OMFL), which returned 18.4% in the same period. This underperformance to both the benchmark and competitors prompted a review of three key elements of Research Affiliates’ strategy: factor selection, the dynamic allocation methodology, and the use of fundamental weighting.</p>
+<p>Research Affiliates selected five smart-beta strategies with low and negative correlations for MFUS: value, low volatility, quality, momentum, and size. From 1968 to 2016, these factors averaged an annual return of 13.14% (Exhibit 13). Beyond historical performance, valuation-based predictability supported their inclusion. For example, the RAFI Fundamental Index, which weights companies using four fundamental value measures, shows a negative relationship between price-to-book (P/B) ratio and future five-year returns, suggesting that cheaper strategies tend to produce higher future returns (Exhibit 1). The Low Volatility Index similarly demonstrates a decline in returns as the P/B ratio increases, with expected 5-year returns falling from around 18% to -13% as the P/B ratio increases from around 0.3 to 0.8, suggesting that the strategy is sensitive to relative valuation, making it better suited for timing in the dynamic strategy (Exhibit 1).</p>
+<p>In contrast, the Momentum factor demonstrates a weaker, more dispersed relationship. Returns are clustered in the 0-10% range across a broader range of P/B ratios (1-5) relative to Volatility, which suggests that timing offers limited predictability for this factor, based on valuation. Despite this, momentum received high allocations in practice, ranging from 18% to 35%, the upper limit, which suggests its z-score was driven more by recent outperformance than by valuation reversion. The divergence in responsiveness of different factors to valuation-based timing is a key limitation in Research Affiliates’ strategy. While the low-volatility factor responds well to valuation-based timing, other factors, such as momentum, are better captured through other measures that are not accounted for in the allocation strategy.</p>
+<p>MFUS’s dynamic allocation methodology adjusts weights based on two timing signals: factor reversal (performance over the last 5 years) and factor momentum (return over the previous year). These signals are standardized into z-scores, which then determine shifts in the dynamic allocation. From 2016 to 2020, the Low Volatility factor saw the widest allocation range of the five factors, ranging from around 8% to 30%. This wide range reflects the sensitivity of the volatility factor to valuation, where returns sharply decline as P/B ratios increase, supporting significant allocation shifts as valuations rise. The Momentum allocation shows a narrower allocation range from around 18% to 35%, the upper limit. Momentum’s high, relatively stable allocation is driven more by strong recent performance than valuation reversals, as Exhibit 1 shows the Momentum factor displays a weak, more dispersed relationship between the P/B ratio and future returns, which shows clustering around the 10% return ratio regardless of valuation.</p>
+<p>This relationship suggests that valuation-based timing is less effective for the Momentum factor relative to factors with a stronger valuation/return relationship, suggesting its allocation shifts were more likely to be driven by positive-momentum z-scores. This uneven responsiveness across valuation-sensitive factors is a key limitation of the dynamic allocation strategy, where it performs better for valuation-sensitive factors but is less effective for trend-based factors like momentum, which persist despite appearing to be more expensive.</p>
+<p>MFUS utilizes a fundamental weighting strategy rather than the more commonly used market capitalization approach, aiming to anchor portfolio weights in long-term business fundamentals, rather than market sentiment. The strategy determined company weights by averaging four accounting-based measures: de-levered sales, operating cash flow, average dividends paid and share buybacks, and most recent book value. These variables favor companies with strong and consistent fundamentals historically associated with future returns, which is necessary in the strategy that aims to use value-tilted factors to reduce exposure to overvalued stocks. This valuation strategy seeks to offer protection during speculative periods, such as the late 1990s tech bubble, which saw overpriced growth stocks put a drag on returns.</p>
+<p>However, the value-tilted design created a value bias that limited MFUS’s exposure to growth-driven companies. MFUS allocated 61% to large-cap stocks and just 10% to small-caps, while competing ETF OMFL allocated 61% of its portfolio to mid-cap stocks. Sector composition within MFUS skewed towards sensitive sectors (40.72% of allocation), namely technology (18.09%) and industrials (11.4%), while OMFL weighed heavily in cyclical sectors (53.46%), specifically financials (24.14%) and consumer cyclical companies (19.46%). These sector tilts allowed OMFL to reap more rewards from the economic expansion that defined much of the period from 2017 to early 2020, while MFUS’s value tilt lagged.</p>
+<p>Exhibit 12 shows that MFUS had top portfolio weightings in large, stable companies, averaging P/B ratios of $3.34, such as Apple (2.62%), Walmart (1.72%), and Home Depot (1.38%), consistent with the fundamental weighting strategy. OMFL held higher weights in mid-cap, more economically-sensitive firms that averaged P/B ratios of $3.05, such as ViacomCBS (1.06%) and United Rentals (0.92%) that benefited from cyclical growth. The divergence in portfolio design is seen in portfolio turnover, where OMFL’s turnover ratio of 321% indicates high-frequency rebalancing, while MFUS’s 36% turnover ratio is more consistent with its long-term, valuation focus and reliance on more slowly evolving fundamental metrics.</p>
+<p>The PIMCO RAFI Dynamic Multifactor ETF (MFUS) implements a dynamic weighting strategy designed by Research Affiliates, aiming to outperform static multifactor models by tactically allocating more capital to factors that appear cheap or have performed well recently. This contrasts with ETFs like Invesco’s OMFL, which also uses a multifactor framework but relies more heavily on macroeconomic regime-based factor tilts.</p>
+<p>The primary strength of dynamic weighting is its theoretical ability to improve returns by adapting factor exposures based on changing market conditions. This approach recognizes that factors are cyclical. Value and Size, for instance, may underperform for several years before experiencing rebounds. By overweighting factors that have underperformed over a 4-year horizon but shown recent 12-month strength, MFUS seeks to enter those rebounds early. This approach also addresses a common critique of static models which is that they may remain overexposed to expensive or overcrowded factors.</p>
+<p>Another benefit is flexibility. A dynamic model can reduce exposure to factors that are expensive or exhibiting negative momentum, potentially avoiding extended periods of underperformance. This ability to tilt away from crowded trades or overvalued factors could help improve risk-adjusted returns compared to static equal-weighted approaches.</p>
+<p>Despite its appeal, dynamic weighting is not without risks. It depends heavily on the reliability of the timing signals used. These signals can fail, especially during economic shifts. From 2017 to 2021, MFUS significantly underperformed both the Russell 1000 and competitor multifactor ETFs like OMFL, calling into question the effectiveness of its timing approach. This underperformance suggests that even well-designed dynamic models may be prone to mis-timing or may overweight structurally underperforming factors like Value, especially when traditional valuation metrics do not capture intangible value well.</p>
+<p>OMFL (Invesco) offers a helpful comparison. While it also rotates factor exposures, it does so based on a macroeconomic regime model, adjusting exposure to factors like Low Volatility or Momentum based on growth, inflation, and risk conditions. Its approach has delivered stronger recent returns, suggesting that macro-based timing may have been more effective than valuation/momentum-based timing during this period.</p>
+<p>For our quantitative analysis, we evaluated the performance of four U.S. equity ETFs: MFUS (PIMCO RAFI Dynamic Multi-Factor), OMFL (Invesco Russell 1000 Dynamic Multifactor), LRGF (iShares MSCI USA Multifactor), and IWB (iShares Russell 1000). We used both the CAPM as well as a 7-factor model that includes exposures to size (SMB), value (HML), profitability (RMW), investment (CMA), momentum (MOM), and volatility (VOL).</p>
+<p>We started our analysis by estimating CAPM and 7-factor regressions for each of the four ETFs using monthly return data over both the short (2017-2021) sample. CAPM estimates how much an ETF outperforms or underperforms the market index after adjusting for market risk, whereas the 7-factor model takes into account more systematic risk. Across all of the ETFs, we find that CAPM alphas are slightly negative, which indicates underperformance relative to the market. In comparison, the 7-factor alphas are more negative, which could suggest the ETFs’ exposures to other factors did not explain their underperformance and may have even contributed to a degree to it.</p>
+<p>Then, we decomposed each ETF’s CAPM alpha into two components: the 7-factor alpha (unexplained return) and the sum of the ETF’s factor loadings multiplied by the CAPM alpha of each factor (explained return from factor tilts). For all four ETFs, we found the 7-factor alpha as well as the factor contribution component to be negative. This implies the ETFs failed to generate excess returns beyond the factor model, but also that their tilts toward certain factors (like value or momentum) hurt their performance during the sample period (2017-2021).</p>
+<p>Based on the alpha values shown in Figure X and standard error values for each of the ETFs and their corresponding CAPM and 7-factor models, we see that for the short sample time period (2017-2012), all of the ETFs underperformed based on their negative CAPM values. MFUS_CAPM underperformed the market by 8.7% yearly and the 7-factor figure was even greater, at a 112.4% yearly underperformance. For all of the figures, we can also see that they are statistically significant.</p>
+<p>Based on our analysis, we have determined that Research Affiliates’ weighting strategy prevents MFUS from allocating more weight to growth factors when value factors are expected to underperform. Research Affiliates allocates weights to all factors using fundamental weighting, a value-based strategy. Since fundamental weighting will recommend greater weights for stocks that are expected to perform well using a value-based strategy, the portfolio will still be mostly exposed to value stocks instead of growth stocks.</p>
+<p>The purpose of the PIMCO RAFI Dynamic Multifactor ETF was to allocate large weights to value factors when it seemed like value factors would outperform growth factors, and large weights to growth factors when it seemed like they would outperform value. Since the fundamental weighting prevents the ETF from allocating more weight to growth factors when it seems they will outperform value, we recommend that Research Affiliates reconsider its weighting strategy. One solution would be to use market-capitalization weighting for growth factors and fundamental weighting for value factors. Market-capitalization weighting is used within the growth strategy and will better allocate weights based on the growth factors’ expected performance.</p>
+<p>Our analysis of the performance of another dynamic multifactor ETF and a static multifactor ETF compared to a market index and the PIMCO RAFI Dynamic Multifactor ETF suggests that the dynamic multifactor strategy should be kept. Research Affiliates is correct in their theory that a dynamic multifactor strategy will allow them to optimize their performance by exposing themselves to the strategy that would perform best over the next period. A better weighting strategy will allow Research Affiliates to benefit from the dynamic allocations across factors.</p>
+<section id="appendix" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Appendix</h1>
+<section id="set-up-and-data" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="set-up-and-data"><span class="header-section-number">1.1</span> Set Up and Data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># here::i_am("analysis/regression.qmd")</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(here)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(frenchdata)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyquant)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tsibble)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(PortfolioAnalytics)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DEoptim)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ROI)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ROI.plugin.glpk)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ROI.plugin.quadprog)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># library(readxl)</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(zoo)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmtest)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sandwich)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Set global options (for all chunks, unless otherwise specified)</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">TRUE</span>, <span class="at">cache=</span><span class="cn">TRUE</span>)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># to avoid displaying numbers in scientific notation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+New names:
+New names:
+New names:
+• `` -&gt; `...1`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 9
+  date        yearmon     MKT     SMB     HML     RMW     CMA     MOM     RF
+  &lt;date&gt;        &lt;mth&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+1 1963-07-31 1963 Jul -0.0039 -0.0041 -0.0097  0.0068 -0.0118  0.009  0.0027
+2 1963-08-31 1963 Aug  0.0507 -0.008   0.018   0.0036 -0.0035  0.0101 0.0025
+3 1963-09-30 1963 Sep -0.0157 -0.0052  0.0013 -0.0071  0.0029  0.0019 0.0027
+4 1963-10-31 1963 Oct  0.0253 -0.0139 -0.001   0.028  -0.0201  0.0312 0.0029
+5 1963-11-30 1963 Nov -0.0085 -0.0088  0.0175 -0.0051  0.0224 -0.0074 0.0027
+6 1963-12-31 1963 Dec  0.0183 -0.021  -0.0002  0.0003 -0.0007  0.0175 0.0029</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+Rows: 1152 Columns: 17
+── Column specification
+──────────────────────────────────────────────────────── Delimiter: "," chr
+(17): ...1, Small LowVol, Small Neutral, Small HighVol, Big LowVol, Big ...
+ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
+Specify the column types or set `show_col_types = FALSE` to quiet this message.
+• `` -&gt; `...1`</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 31
+  date.x     yearmon       MKT     SMB     HML     RMW     CMA     MOM     RF
+  &lt;date&gt;     &lt;yearmon&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+1 1963-07-31 Jul 1963  -0.0039 -0.0041 -0.0097  0.0068 -0.0118  0.009  0.0027
+2 1963-08-31 Aug 1963   0.0507 -0.008   0.018   0.0036 -0.0035  0.0101 0.0025
+3 1963-09-30 Sep 1963  -0.0157 -0.0052  0.0013 -0.0071  0.0029  0.0019 0.0027
+4 1963-10-31 Oct 1963   0.0253 -0.0139 -0.001   0.028  -0.0201  0.0312 0.0029
+5 1963-11-30 Nov 1963  -0.0085 -0.0088  0.0175 -0.0051  0.0224 -0.0074 0.0027
+6 1963-12-31 Dec 1963   0.0183 -0.021  -0.0002  0.0003 -0.0007  0.0175 0.0029
+# ℹ 22 more variables: date.y &lt;date&gt;, `Small LowVol` &lt;chr&gt;,
+#   `Small Neutral` &lt;chr&gt;, `Small HighVol` &lt;chr&gt;, `Big LowVol` &lt;chr&gt;,
+#   `Big Neutral` &lt;chr&gt;, `Big HighVol` &lt;chr&gt;, `Rm-Rf` &lt;chr&gt;, Rf &lt;chr&gt;,
+#   `SLV-Rf` &lt;chr&gt;, `BLV-Rf` &lt;chr&gt;, `SHV-Rf` &lt;chr&gt;, `BHV-Rf` &lt;chr&gt;, VOL &lt;chr&gt;,
+#   Conservative &lt;chr&gt;, Speculative &lt;chr&gt;, CMS &lt;chr&gt;, month_part &lt;chr&gt;,
+#   year_part &lt;chr&gt;, year_numeric &lt;dbl&gt;, full_year &lt;chr&gt;, full_date &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="quantitative-analysis-section" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="quantitative-analysis-section"><span class="header-section-number">1.2</span> Quantitative Analysis Section</h2>
+<section id="average-returns-2017---2021" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="average-returns-2017---2021"><span class="header-section-number">1.2.1</span> AVERAGE RETURNS 2017 - 2021</h3>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There was 1 warning in `summarise()`.
+ℹ In argument: `across(c(MKT, SMB, HML, RMW, CMA, MOM, VOL), mean, na.rm =
+  TRUE)`.
+Caused by warning:
+! The `...` argument of `across()` is deprecated as of dplyr 1.1.0.
+Supply arguments directly to `.fns` through an anonymous function instead.
+
+  # Previously
+  across(a:b, mean, na.rm = TRUE)
+
+  # Now
+  across(a:b, \(x) mean(x, na.rm = TRUE))</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 7
+     MKT     SMB     HML       RMW      CMA      MOM    VOL
+   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;
+1 0.0124 0.00199 -0.0110 -0.000872 -0.00191 0.000626 -0.447</code></pre>
+</div>
+</div>
+</section>
+<section id="average-returns-full-time" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="average-returns-full-time"><span class="header-section-number">1.2.2</span> AVERAGE RETURNS FULL TIME</h3>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 7
+      MKT      SMB     HML     RMW     CMA     MOM   VOL
+    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+1 0.00744 0.000746 0.00104 0.00381 0.00184 0.00367 0.495</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>  Factor        Alpha        Beta Alpha_Annualized
+1    SMB -0.002378966  0.28641675      -0.02854759
+2    HML -0.014310726  0.18896604      -0.17172871
+3    RMW -0.002820830  0.07090327      -0.03384996
+4    CMA -0.002353560 -0.06246848      -0.02824272
+5    MOM  0.004070652 -0.40851279       0.04884782
+6    VOL -0.463882595  1.38222698      -5.56659114</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>  Factor         Alpha        Beta Alpha_Annualized
+1    SMB -0.0021469178  0.16981903     -0.025763014
+2    HML -0.0005805955 -0.06197508     -0.006967147
+3    RMW  0.0029972645 -0.21029284      0.035967174
+4    CMA  0.0007028709 -0.15052930      0.008434451
+5    MOM  0.0035002871 -0.32716625      0.042003445
+6    VOL  0.4957873479 -0.44844026      5.949448175</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<!-- preamble start -->
+
+    <script>
+
+      function styleCell_w5fqzkz13ayhvmdp1trb(i, j, css_id) {
+          var table = document.getElementById("tinytable_w5fqzkz13ayhvmdp1trb");
+          var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
+          if (cell) {
+              console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
+              cell.classList.add(css_id);
+          } else {
+              console.warn(`Cell at (${i}, ${j}) not found.`);
+          }
+      }
+      function insertSpanRow(i, colspan, content) {
+        var table = document.getElementById('tinytable_w5fqzkz13ayhvmdp1trb');
+        var newRow = table.insertRow(i);
+        var newCell = newRow.insertCell(0);
+        newCell.setAttribute("colspan", colspan);
+        // newCell.innerText = content;
+        // this may be unsafe, but innerText does not interpret <br>
+        newCell.innerHTML = content;
+      }
+      function spanCell_w5fqzkz13ayhvmdp1trb(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_w5fqzkz13ayhvmdp1trb");
+        const targetRow = table.rows[i];
+        const targetCell = targetRow.cells[j];
+        for (let r = 0; r < rowspan; r++) {
+          // Only start deleting cells to the right for the first row (r == 0)
+          if (r === 0) {
+            // Delete cells to the right of the target cell in the first row
+            for (let c = colspan - 1; c > 0; c--) {
+              if (table.rows[i + r].cells[j + c]) {
+                table.rows[i + r].deleteCell(j + c);
+              }
+            }
+          }
+          // For rows below the first, delete starting from the target column
+          if (r > 0) {
+            for (let c = colspan - 1; c >= 0; c--) {
+              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
+                table.rows[i + r].deleteCell(j);
+              }
+            }
+          }
+        }
+        // Set rowspan and colspan of the target cell
+        targetCell.rowSpan = rowspan;
+        targetCell.colSpan = colspan;
+      }
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: 0, j: 1 }, { i: 0, j: 4 }, { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 5 }, { i: 0, j: 8 }, { i: 0, j: 7 }, { i: 0, j: 6 },  ], css_id: 'tinytable_css_wysov5vo6ri53qee6xey',}, 
+          { positions: [ { i: 2, j: 3 }, { i: 2, j: 2 }, { i: 2, j: 1 }, { i: 2, j: 4 }, { i: 2, j: 7 }, { i: 2, j: 6 }, { i: 2, j: 5 }, { i: 2, j: 8 },  ], css_id: 'tinytable_css_r5jzp5qmk3jiqndkyq1d',}, 
+          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_l71sdmogaq9ypl6qpyg9',}, 
+          { positions: [ { i: 2, j: 0 },  ], css_id: 'tinytable_css_j2kxyekriy27j3ygngvc',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_ct6bfhpjllvzqhf4ouri',}, 
+          { positions: [ { i: 1, j: 2 }, { i: 1, j: 1 }, { i: 1, j: 4 }, { i: 1, j: 3 }, { i: 1, j: 6 }, { i: 1, j: 5 }, { i: 1, j: 8 }, { i: 1, j: 7 },  ], css_id: 'tinytable_css_7wlh4m940bwq0jmim3x8',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  styleCell_w5fqzkz13ayhvmdp1trb(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <style>
+      /* tinytable css entries after */
+      .table td.tinytable_css_wysov5vo6ri53qee6xey, .table th.tinytable_css_wysov5vo6ri53qee6xey { text-align: center; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_r5jzp5qmk3jiqndkyq1d, .table th.tinytable_css_r5jzp5qmk3jiqndkyq1d { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_l71sdmogaq9ypl6qpyg9, .table th.tinytable_css_l71sdmogaq9ypl6qpyg9 { text-align: left; }
+      .table td.tinytable_css_j2kxyekriy27j3ygngvc, .table th.tinytable_css_j2kxyekriy27j3ygngvc { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_ct6bfhpjllvzqhf4ouri, .table th.tinytable_css_ct6bfhpjllvzqhf4ouri { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_7wlh4m940bwq0jmim3x8, .table th.tinytable_css_7wlh4m940bwq0jmim3x8 { text-align: center; }
+    </style>
+    <div class="container">
+      <table class="table table-borderless" id="tinytable_w5fqzkz13ayhvmdp1trb" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        <thead>
+        </thead><caption>Short Sample (2017–2021) Regressions</caption>
+              <tbody><tr>
+                <th scope="col"> </th>
+                <th scope="col">MFUS_CAPM</th>
+                <th scope="col">MFUS_7F</th>
+                <th scope="col">OMFL_CAPM</th>
+                <th scope="col">OMFL_7F</th>
+                <th scope="col">LRGF_CAPM</th>
+                <th scope="col">LRGF_7F</th>
+                <th scope="col">IWB_CAPM</th>
+                <th scope="col">IWB_7F</th>
+              </tr>
+        
+        
+        </tbody><tbody>
+                <tr>
+                  <td>Alpha (annualized)</td>
+                  <td>-0.087</td>
+                  <td>-1.124</td>
+                  <td>-0.038</td>
+                  <td>-1.270</td>
+                  <td>-0.100</td>
+                  <td>-1.477</td>
+                  <td>-0.028</td>
+                  <td>-2.206</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>(0.035)</td>
+                  <td>(0.000)</td>
+                  <td>(0.054)</td>
+                  <td>(0.000)</td>
+                  <td>(0.033)</td>
+                  <td>(0.000)</td>
+                  <td>(0.011)</td>
+                  <td>(0.000)</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+</section>
+</section>
+</section>
 
 </main>
 <!-- /main column -->
