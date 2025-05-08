@@ -53,7 +53,14 @@ Despite its appeal, dynamic weighting is not without risks. It depends heavily o
 OMFL (Invesco) offers a helpful comparison. While it also rotates factor exposures, it does so based on a macroeconomic regime model, adjusting exposure to factors like Low Volatility or Momentum based on growth, inflation, and risk conditions. Its approach has delivered stronger recent returns, suggesting that macro-based timing may have been more effective than valuation/momentum-based timing during this period.
 
 
-(Chaira's Section)
+For our quantitative analysis, we evaluated the performance of four U.S. equity ETFs: MFUS (PIMCO RAFI Dynamic Multi-Factor), OMFL (Invesco Russell 1000 Dynamic Multifactor), LRGF (iShares MSCI USA Multifactor), and IWB (iShares Russell 1000). We used both the CAPM as well as a 7-factor model that includes exposures to size (SMB), value (HML), profitability (RMW), investment (CMA), momentum (MOM), and volatility (VOL).
+
+We started our analysis by estimating CAPM and 7-factor regressions for each of the four ETFs using monthly return data over both the short (2017-2021) sample. CAPM estimates how much an ETF outperforms or underperforms the market index after adjusting for market risk, whereas the 7-factor model takes into account more systematic risk. Across all of the ETFs, we find that CAPM alphas are slightly negative, which indicates underperformance relative to the market. In comparison, the 7-factor alphas are more negative, which could suggest the ETFs’ exposures to other factors did not explain their underperformance and may have even contributed to a degree to it.
+
+Then, we decomposed each ETF’s CAPM alpha into two components: the 7-factor alpha (unexplained return) and the sum of the ETF’s factor loadings multiplied by the CAPM alpha of each factor (explained return from factor tilts). For all four ETFs, we found the 7-factor alpha as well as the factor contribution component to be negative. This implies the ETFs failed to generate excess returns beyond the factor model, but also that their tilts toward certain factors (like value or momentum) hurt their performance during the sample period (2017-2021).
+
+Based on the alpha values shown in Figure X and standard error values for each of the ETFs and their corresponding CAPM and 7-factor models, we see that for the short sample time period (2017-2012), all of the ETFs underperformed based on their negative CAPM values. MFUS_CAPM underperformed the market by 8.7% yearly and the 7-factor figure was even greater, at a 112.4% yearly underperformance. For all of the figures, we can also see that they are statistically significant.
+
 
 Based on our analysis, we have determined that Research Affiliates’ weighting strategy prevents MFUS from allocating more weight to growth factors when value factors are expected to underperform. Research Affiliates allocates weights to all factors using fundamental weighting, a value-based strategy. Since fundamental weighting will recommend greater weights for stocks that are expected to perform well using a value-based strategy, the portfolio will still be mostly exposed to value stocks instead of growth stocks. 
 
