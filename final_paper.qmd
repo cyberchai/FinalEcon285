@@ -351,6 +351,24 @@ models_short <- run_regressions(short_data, etfs, factors_all)
 
 ```
 
+```{r}
+adjust_annual_alpha <- function(model_list) {
+  # Extract and annualize alpha
+  alpha_annualizer <- function(x) {
+    if ("(Intercept)" %in% rownames(x)) {
+      x["(Intercept)", 1] <- x["(Intercept)", 1] * 12  # alpha
+      x["(Intercept)", 2] <- x["(Intercept)", 2] * 12  # std error
+    }
+    x
+  }
+
+  # Apply to all models
+  adjusted_models <- lapply(model_list, alpha_annualizer)
+  
+  return(adjusted_models)
+}
+```
+
 
 ```{r}
 models_short_adj <- adjust_annual_alpha(models_short)
