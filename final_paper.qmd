@@ -51,4 +51,7 @@ Despite its appeal, dynamic weighting is not without risks. It depends heavily o
 
 OMFL (Invesco) offers a helpful comparison. While it also rotates factor exposures, it does so based on a macroeconomic regime model, adjusting exposure to factors like Low Volatility or Momentum based on growth, inflation, and risk conditions. Its approach has delivered stronger recent returns, suggesting that macro-based timing may have been more effective than valuation/momentum-based timing during this period.
 
+# Appendix
+
+
 
