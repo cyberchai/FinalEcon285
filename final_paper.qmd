@@ -372,7 +372,7 @@ adjust_annual_alpha <- function(model_list) {
 
 ```{r}
 models_short_adj <- adjust_annual_alpha(models_short)
-models_long_adj  <- adjust_annual_alpha(models_long)
+# models_long_adj  <- adjust_annual_alpha(models_long)
 
 modelsummary(models_short_adj,
              coef_map = c("(Intercept)" = "Alpha (annualized)"),
