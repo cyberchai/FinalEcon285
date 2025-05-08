@@ -24,6 +24,7 @@ format:
         \usepackage{rotating}
 
 ---
+Research Affiliates was a leading firm in using fundamental weighting as a portfolio indexing strategy. Fundamental weighting is a value-based weighting strategy, and prior to their PIMCO RAFI dynamic multifactor ETF, Research Affiliates had only focused on these fundamentally weighted products. Our analysis focuses on the PIMCO RAFI dynamic multifactor ETF and how it should be adjusted after its first four years on the market. 
 
 Several pivotal decisions face the Research Affiliates team regarding the future of the strategy underlying the PIMCO RAFI Multifactor ETF (MFUS). MFUS delivered an aggregate return of 10.02% from December 2017 to February 2021, underperforming the broader market’s return of 14.56% by 4.54%, as indexed by the Russell 1000. MFUS also trailed competing ETFs that employed the same dynamic, multifactor strategy, such as the Invesco Russell 1000 Dynamic Multifactor ETF (OMFL), which returned 18.4% in the same period. This underperformance to both the benchmark and competitors prompted a review of three key elements of Research Affiliates’ strategy: factor selection, the dynamic allocation methodology, and the use of fundamental weighting.
 
@@ -50,6 +51,16 @@ Another benefit is flexibility. A dynamic model can reduce exposure to factors t
 Despite its appeal, dynamic weighting is not without risks. It depends heavily on the reliability of the timing signals used. These signals can fail, especially during economic shifts. From 2017 to 2021, MFUS significantly underperformed both the Russell 1000 and competitor multifactor ETFs like OMFL, calling into question the effectiveness of its timing approach. This underperformance suggests that even well-designed dynamic models may be prone to mis-timing or may overweight structurally underperforming factors like Value, especially when traditional valuation metrics do not capture intangible value well.
 
 OMFL (Invesco) offers a helpful comparison. While it also rotates factor exposures, it does so based on a macroeconomic regime model, adjusting exposure to factors like Low Volatility or Momentum based on growth, inflation, and risk conditions. Its approach has delivered stronger recent returns, suggesting that macro-based timing may have been more effective than valuation/momentum-based timing during this period.
+
+
+(Chaira's Section)
+
+Based on our analysis, we have determined that Research Affiliates’ weighting strategy prevents MFUS from allocating more weight to growth factors when value factors are expected to underperform. Research Affiliates allocates weights to all factors using fundamental weighting, a value-based strategy. Since fundamental weighting will recommend greater weights for stocks that are expected to perform well using a value-based strategy, the portfolio will still be mostly exposed to value stocks instead of growth stocks. 
+
+The purpose of the PIMCO RAFI Dynamic Multifactor ETF was to allocate large weights to value factors when it seemed like value factors would outperform growth factors, and large weights to growth factors when it seemed like they would outperform value. Since the fundamental weighting prevents the ETF from allocating more weight to growth factors when it seems they will outperform value, we recommend that Research Affiliates reconsider its weighting strategy. One solution would be to use market-capitalization weighting for growth factors and fundamental weighting for value factors. Market-capitalization weighting is used within the growth strategy and will better allocate weights based on the growth factors’ expected performance.
+
+Our analysis of the performance of another dynamic multifactor ETF and a static multifactor ETF compared to a market index and the PIMCO RAFI Dynamic Multifactor ETF suggests that the dynamic multifactor strategy should be kept. Research Affiliates is correct in their theory that a dynamic multifactor strategy will allow them to optimize their performance by exposing themselves to the strategy that would perform best over the next period. A better weighting strategy will allow Research Affiliates to benefit from the dynamic allocations across factors.
+
 
 # Appendix
 
